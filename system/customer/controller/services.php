@@ -1,0 +1,103 @@
+<?php
+include('../controller/database.php');
+
+
+$sw_service = $mysqli->query("SELECT * from sw_service");
+
+if(isset($_POST['process-services'])){
+	
+	$serviceid       = $_POST['serviceid'];
+	$customerid       = $_POST['customerid'];
+	
+	
+	$mysqli->query("INSERT INTO sw_application (service_id , customer_id ) VALUES ('$serviceid','$customerid')");
+
+  	        echo '<script>
+					Swal.fire({
+							title: "Success! ",
+							text: "You Successfully Apply to Service Plan",
+							icon: "success",
+							type: "success"
+							}).then(function(){
+								window.location = "services.php";
+							});
+			</script>';
+	
+}
+
+if(isset($_POST['upgrade-services'])){
+	
+	$serviceid       = $_POST['serviceid'];
+	$customerid       = $_POST['customerid'];
+	
+	
+	$mysqli->query("INSERT INTO sw_application (service_id , customer_id,is_upgrade ) VALUES ('$serviceid','$customerid',1)");
+
+  	        echo '<script>
+					Swal.fire({
+							title: "Success! ",
+							text: "You Successfully Apply to Upgrade Service Plan",
+							icon: "success",
+							type: "success"
+							}).then(function(){
+								window.location = "services-plan.php";
+							});
+			</script>';
+	
+}
+
+
+if(isset($_POST['cancel-services'])){
+	
+	$id       = $_POST['id'];
+
+	$mysqli->query("DELETE FROM  sw_application where application_id ='$id' ");
+	
+	
+	echo '  <script>
+					Swal.fire({
+							title: "Success! ",
+							text: " Service Plan is Successfully Cancelled",
+							icon: "success",
+							type: "success"
+							}).then(function(){
+								window.location = "services.php";
+							});
+			</script>';
+	
+}
+
+if(isset($_POST['edit-services'])){
+	
+	$service_name       = $_POST['service_name'];
+	$service_desc       = $_POST['service_desc'];
+	$service_price      = $_POST['service_price'];
+	$id                 = $_POST['id'];
+	
+
+	if( $_FILES["image1"]["name"] == ""){
+			$location = $_POST['images'];
+		} else {
+			$image1 = addslashes(file_get_contents($_FILES['image1']['tmp_name']));
+			$image_name = addslashes($_FILES['image1']['name']);
+			$image_size = getimagesize($_FILES['image1']['tmp_name']);
+			move_uploaded_file($_FILES["image1"]["tmp_name"], "../assets/img/" . $_FILES["image1"]["name"]);
+			$location   =  $_FILES["image1"]["name"];
+	}
+
+	$mysqli->query("UPDATE  sw_service SET service_name = '$service_name' , service_price = '$service_price', service_desc = '$service_desc',service_pic='$location'
+					WHERE service_id = '$id'");
+
+		
+	echo '  <script>
+					Swal.fire({
+							title: "Success! ",
+							text: " Details is Successfully Updated",
+							icon: "success",
+							type: "success"
+							}).then(function(){
+								window.location = "services.php";
+							});
+			</script>';
+	
+}

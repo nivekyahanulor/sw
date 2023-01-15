@@ -1,0 +1,79 @@
+
+0.1 My profile / Account settings - not working.  - please check 
+
+
+
+1. Customer Registration
+ - add the salesman drop down box.   Notes: This is identify who handles the customer 
+ - add area *just a textbox / example text "manila, pasig area" 
+
+
+2. Parts Receiving
+Item Receiving Form
+- If item has a s12:19 am 22/04/20221:02 am 22/04/2022ame "item code" record, auto populate the records but not the qty. 
+- Search button *pls include "item name" as searchable items. 
+- Add product status "normal add" and "reject". 
+
+3. INVENTORY - create a separate inventory tab
+             - for updating of records 
+             - same item code should add up the qty to new and old records. 
+
+4. Receipt Creation
+Transaction Receipt Form
+ //- include salesman, link it with the customer details. 
+ //- Item Price - *editable yung price textbox.  
+ 
+Add the following: 
+
+  Total: 
+  Discount rate %: ____________ *this is for discount discussion per customer. 
+  Net Amount: _____________ *after the discount rate applied. 
+  
+  2nd. Discount rate %: ____________ *this is another discount rate if customer insist. 
+  Total Net Amount: _____________ *after the 2nd discount rate applied. 
+	
+	- Discount Rate orders.php
+  
+Receipt generation: 
+  -AN OPTION TO CREATE A RECEIPT EVEN IF CUSTOMER NOT YET PAID.  
+	- DISPPLAY RECEIPT orders.php
+
+5. CHEQUE MONITORING 
+  Please include this to our system
+  Note: Details can be found on the photo sent. 
+       
+  Check Status: 
+     - Uncleared
+     - Cleared
+     - Return 
+
+6. Orders History - Change it to "Order Transactions" 
+- add cancel button, to revert back all the stock to inventory *cancellation of orders. 
+- it should be editable for  DR ADJUSTMENT SUCH AS PRICE etc. 
+
+
+
+
+7. REPORTS 
+
+History Report / (SGM Report) *printable 
+- Inventory Report / Weekly, Monthly, Yearly.
+- Sales report *include an option to select the specific salesman / Weekly, Monthly, Yearly.
+- DR / Invoice (*paid or unpaid/ both) and or / Weekly, Monthly, Yearly. 
+- Reject Items 
+- Cheque Status *uncleared, cleared, return. and or / Weekly, Monthly, Yearly report. 
+
+  SALES REPORT, with an option salesman or none. 
+
+-----------------------
+
+Additional: 
+Dashboard
+Include the GUI sales graph the one you sent before. 
+
+
+
+
+
+
+
